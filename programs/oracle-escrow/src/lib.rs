@@ -67,7 +67,7 @@ pub mod oracle_escrow {
         let tee_validator: Pubkey = TEE_VALIDATOR.parse().unwrap();
         ctx.accounts.delegate_pda(
             &ctx.accounts.payer,
-            &[OGMA_SCORE_SEED, ctx.accounts.payer.key().as_ref()],
+            &[OGMA_SCORE_SEED, ctx.accounts.oracle_signer.key().as_ref()],
             DelegateConfig {
                 validator: Some(tee_validator),
                 ..Default::default()
@@ -102,6 +102,9 @@ pub mod oracle_escrow {
     /// Called from within the TEE (sent to TEE RPC endpoint).
     /// After this, the account returns to L1 ownership and state is finalized.
     pub fn undelegate_and_finalize(ctx: Context<UndelegateAndFinalize>) -> Result<()> {
+        // Flush account changes before committing — required by MagicBlock PER
+        ctx.accounts.ogma_score.exit(&crate::ID)?;
+        
         commit_and_undelegate_accounts(
             &ctx.accounts.payer,
             vec![&ctx.accounts.ogma_score.to_account_info()],

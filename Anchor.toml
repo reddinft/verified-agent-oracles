@@ -1,6 +1,9 @@
 [features]
-seeds = false
+resolution = true
 skip-lint = false
+
+[toolchain]
+anchor_version = "0.32.1"
 
 [programs.localnet]
 oracle_escrow = "YOUR_PROGRAM_ID_PLACEHOLDER"
