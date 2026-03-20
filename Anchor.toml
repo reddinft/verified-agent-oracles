@@ -6,10 +6,10 @@ skip-lint = false
 anchor_version = "0.32.1"
 
 [programs.localnet]
-oracle_escrow = "YOUR_PROGRAM_ID_PLACEHOLDER"
+oracle_escrow = "GyT8wyGD3dG3sVQ986SGwKxF23iWNjdbSe4oCuBrkMdd"
 
 [programs.devnet]
-oracle_escrow = "YOUR_PROGRAM_ID_PLACEHOLDER"
+oracle_escrow = "GyT8wyGD3dG3sVQ986SGwKxF23iWNjdbSe4oCuBrkMdd"
 
 [registry]
 url = "https://api.apr.dev"

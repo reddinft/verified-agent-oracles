@@ -4,7 +4,7 @@ use ephemeral_rollups_sdk::cpi::DelegateConfig;
 use ephemeral_rollups_sdk::ephem::commit_and_undelegate_accounts;
 
 // TODO: Replace with actual program ID after `anchor build`
-declare_id!("11111111111111111111111111111111");
+declare_id!("GyT8wyGD3dG3sVQ986SGwKxF23iWNjdbSe4oCuBrkMdd");
 
 pub const OGMA_SCORE_SEED: &[u8] = b"ogma_score";
 pub const ESCROW_SEED: &[u8] = b"escrow";
