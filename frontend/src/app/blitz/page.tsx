@@ -9,6 +9,9 @@ interface ScoreResult {
   rationale: string;
   attestation_tx?: string;
   payment_tx?: string;
+  escrow_tx?: string;
+  init_tx?: string;
+  delegate_tx?: string;
   attested: boolean;
   model_used?: string;
   score_account?: string;
@@ -71,6 +74,9 @@ export default function BlitzDemo() {
         rationale: scored.rationale,
         attestation_tx: attested.attest_tx,
         payment_tx: payment.payment_tx,
+        escrow_tx: attested.escrow_tx,
+        init_tx: attested.init_tx,
+        delegate_tx: attested.delegate_tx,
         attested: true,
         model_used: scored.model_used,
         score_account: attested.score_account,
@@ -270,37 +276,37 @@ export default function BlitzDemo() {
               <p className="text-sm text-gray-300">{result.rationale}</p>
             </div>
 
-            {result.attestation_tx && (
-              <div>
-                <div className="text-gray-400 text-xs uppercase tracking-wider mb-1">
-                  On-Chain Proof
-                </div>
-                <a
-                  href={`https://explorer.solana.com/tx/${result.attestation_tx}?cluster=devnet`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-purple-400 hover:text-purple-300 text-sm underline break-all"
-                >
-                  {result.attestation_tx}
-                </a>
+            {/* On-chain transaction breakdown */}
+            <div>
+              <div className="text-gray-400 text-xs uppercase tracking-wider mb-2">
+                On-Chain Proof — Solana Devnet
               </div>
-            )}
-
-            {result.payment_tx && (
-              <div>
-                <div className="text-gray-400 text-xs uppercase tracking-wider mb-1">
-                  Payment Transaction
-                </div>
-                <a
-                  href={`https://explorer.solana.com/tx/${result.payment_tx}?cluster=devnet`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-green-400 hover:text-green-300 text-sm underline break-all"
-                >
-                  {result.payment_tx}
-                </a>
+              <div className="space-y-2">
+                {[
+                  { label: "1. Initialize Escrow", tx: result.escrow_tx, color: "text-gray-400" },
+                  { label: "2. Initialize Score Account", tx: result.init_tx, color: "text-gray-400" },
+                  { label: "3. Delegate to MagicBlock PER", tx: result.delegate_tx, color: "text-blue-400" },
+                  { label: "4. Submit Score via TEE ✦", tx: result.attestation_tx, color: "text-purple-400" },
+                  { label: "5. Undelegate & Finalize", tx: result.attestation_tx ? result.attestation_tx : undefined, color: "text-purple-400" },
+                  { label: "6. Release Payment", tx: result.payment_tx, color: "text-green-400" },
+                ].map(({ label, tx, color }) =>
+                  tx ? (
+                    <div key={label} className="flex items-start gap-2 text-xs">
+                      <span className="text-gray-600 shrink-0 w-44">{label}</span>
+                      <a
+                        href={`https://explorer.solana.com/tx/${tx}?cluster=devnet`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={`${color} hover:opacity-80 underline font-mono break-all`}
+                      >
+                        {tx.slice(0, 20)}…{tx.slice(-8)}
+                      </a>
+                    </div>
+                  ) : null
+                )}
               </div>
-            )}
+              <p className="text-xs text-gray-600 mt-2">✦ Scoring executed inside MagicBlock Private Ephemeral Rollup (TEE)</p>
+            </div>
           </div>
         )}
 
