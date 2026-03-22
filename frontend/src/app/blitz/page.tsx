@@ -33,7 +33,7 @@ export default function BlitzDemo() {
     try {
       // Step 1: Score the story (Ogma — TEE-shielded)
       setStep("scoring");
-      const scoreRes = await fetch("/api/blitz/score", {
+      const scoreRes = await fetch("/api/blitz/score/", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ story }),
@@ -43,7 +43,7 @@ export default function BlitzDemo() {
 
       // Step 2: Attest + commit to Solana via MagicBlock PER
       setStep("attesting");
-      const attestRes = await fetch("/api/blitz/attest", {
+      const attestRes = await fetch("/api/blitz/attest/", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -56,7 +56,7 @@ export default function BlitzDemo() {
 
       // Step 3: Release payment if score >= threshold
       setStep("paying");
-      const payRes = await fetch("/api/blitz/release", {
+      const payRes = await fetch("/api/blitz/release/", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ score_account: attested.score_account }),
