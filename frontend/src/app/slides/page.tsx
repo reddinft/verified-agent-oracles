@@ -3,9 +3,9 @@
 import { useEffect } from "react";
 
 const SLIDES_CONTENT = `
-## 🕷️ Verified Agent Oracles
+## OgmaScore
 ### TEE-Attested AI Judgment as a Payment Primitive
-**Anansi × Ogma | MagicBlock PER | Solana Devnet**
+**MagicBlock PER | Solana Devnet**
 
 ---
 
@@ -105,18 +105,19 @@ View full signatures: [github.com/nissan/verified-agent-oracles](https://github.
 - **MagicBlock** — Private Ephemeral Rollup (TEE)
 - **Anchor** — program framework
 - **Next.js + Tailwind** — this demo
-- **Anansi** (story) + **Ogma** (scorer) — AI agent pair
+- **Venice AI** — zero-retention AI scoring (Ogma)
 
 ---
 
-## 🕷️ Thank You
+## OgmaScore
 
-**Verified Agent Oracles**
 *TEE-attested AI judgment as a payment primitive*
 
 Built at **MagicBlock Solana Blitz v2**
 
-[github.com/nissan/verified-agent-oracles](https://github.com/nissan/verified-agent-oracles)
+🎮 [ogmascore.vercel.app/blitz](https://ogmascore.vercel.app/blitz)
+
+📦 [github.com/nissan/verified-agent-oracles](https://github.com/nissan/verified-agent-oracles)
 `;
 
 const DIAGRAM_SLIDES = [
