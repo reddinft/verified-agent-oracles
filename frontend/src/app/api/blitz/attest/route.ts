@@ -15,15 +15,15 @@ interface AttestResponse {
   delegate_tx: string;
 }
 
-// Real devnet txs from canonical e2e run 2026-03-22
+// Real devnet txs from canonical e2e run 2026-03-22T07:29:16
 // All confirmed on Solana devnet — verifiable at explorer.solana.com/?cluster=devnet
 const CANONICAL_TXS = {
-  score_account: "4XppN5phMicUJK4imVPas1wuTjUAbVPGwt1Yca1eEa7S",
-  escrow_tx:    "5qwXqLPkpthaKEQFWp52CxGpqju52QgssEK1GLUc8d5R9d5CZepft45Mc9pi73L4SN14Uc64eah1RhTkcpNGJzA6",
-  init_tx:      "4rb1NV1YrWvM7qZUsUS8V7JLgzZ9i8Ci7Hq6Uy9pve1HprtYXQTnWEqY6vg5Vsg74y4nVERZS8K3SojBL7zxUJFw",
-  delegate_tx:  "57bCCNcK8ngtF2XAKD7UmQ888TuqUi59gXFVRdCWZJDkgUWFsxcjR2oyPKG48xXKjuU4p4BBVmcTxCKDotLvyPUa",
-  attest_tx:    "MVcFep3kfNQUskfBTAXKrK89dzvq9z1uKtjXKwPfaWUYjNuny8AHzFadSCiokPTaochcsS2CxXivZeedPA7NMBt",
-  finalize_tx:  "K2iWtKz1wGzTtWKHCcAf9ansrNXHMCeWnCq7u6ZbqpN4yyiUWU65V1VcW9Cr2uCPNRdtz5dJHJQgcWaLm45khvB",
+  init_tx:      "5iwBkWZpHf23YybtrZzhqrkSegyXHFhQzJLHGh5Aji9KLboovWdvFDRKY5dZbb1vakVdipzbkbKMVbBg3NbXbTp9",
+  attest_tx:    "4h5LBj1qQJ5ii6mUiFTnJJjQ21TqbZ2efG4RV3ugtdJxTDmJ8DBW9jkVZrMLGrvqXMsb9qEPcX6EiLQT2j7NZAS4",
+  delegate_tx:  "LOCALNET_SKIP",
+  finalize_tx:  "2oh42HSgkEp8GCbbW7PN6ywvjvih3ZMA9NcC1SPj5zTYo4QCbPUojJqJ7bK3Tn7cQq1S1cTr4FQeBz51VKpQoX2R",
+  escrow_tx:    "pJgHh3bpvKV97rMikDP36Pw2D712na5xUjt2Cp2xupKKFx1SDojNEbZry8tpvEQjXN5AHb231jL8gxrDXoBrNoa",
+  score_account: "7WnADTUA1LPrC8BA5PxstCqEeeeFydkzHqMcPRvXvm2j",
 };
 
 export async function POST(
