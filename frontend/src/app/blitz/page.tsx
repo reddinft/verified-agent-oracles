@@ -113,22 +113,46 @@ export default function BlitzDemo() {
         {/* Story Input */}
         <div className="space-y-3">
           <label className="text-sm text-gray-400 uppercase tracking-wider">
-            Story for Anansi → Ogma pipeline
+            Submit a story for scoring
           </label>
+
+          {/* What is an Anansi story */}
+          <div className="bg-gray-900/60 border border-gray-800 rounded-lg p-4 text-sm text-gray-400 space-y-2">
+            <p className="text-gray-300 font-semibold">🕷️ What is an Anansi story?</p>
+            <p>
+              Anansi is the West African and Caribbean trickster spider — a folk hero who outwits
+              gods, kings, and monsters through cleverness. Anansi stories typically feature:
+            </p>
+            <ul className="list-disc list-inside space-y-1 text-gray-500 text-xs">
+              <li>Anansi (or a surrogate trickster) as the protagonist</li>
+              <li>A Caribbean, West African, or diasporic setting</li>
+              <li>Cultural folklore elements — spirits, animals, traditional values</li>
+              <li>A moral or lesson woven into the narrative</li>
+            </ul>
+            <p className="text-xs text-gray-600">
+              Ogma scores stories <span className="text-purple-400">1–10 for cultural authenticity</span> —
+              accurate representation, absence of harmful stereotypes, and respectful voice.
+              Payment releases automatically when score ≥ 7.
+            </p>
+          </div>
+
           <textarea
-            className="w-full h-40 bg-gray-900 border border-gray-700 rounded-lg p-4 text-white placeholder-gray-600 focus:border-purple-500 focus:outline-none resize-none"
-            placeholder="Paste a culturally-rich story for Ogma to score..."
+            className="w-full h-48 bg-gray-900 border border-gray-700 rounded-lg p-4 text-white placeholder-gray-600 focus:border-purple-500 focus:outline-none resize-none text-sm"
+            placeholder={`Example opening:\n\n"In the time before time, when animals still walked and talked as men, Anansi the spider came upon a calabash sealed with wax. The old women of the village warned him away, but Anansi had never met a secret he could leave alone..."`}
             value={story}
             onChange={(e) => setStory(e.target.value)}
             disabled={loading}
           />
-          <button
-            onClick={runPipeline}
-            disabled={loading || story.length < 20}
-            className="px-6 py-3 bg-purple-600 hover:bg-purple-500 disabled:bg-gray-700 disabled:text-gray-500 rounded-lg font-bold transition-colors"
-          >
-            {loading ? stepLabel : "Run Pipeline"}
-          </button>
+          <div className="flex items-center justify-between">
+            <span className="text-xs text-gray-600">{story.length} chars {story.length < 20 ? "— write at least a sentence" : "✓"}</span>
+            <button
+              onClick={runPipeline}
+              disabled={loading || story.length < 20}
+              className="px-6 py-3 bg-purple-600 hover:bg-purple-500 disabled:bg-gray-700 disabled:text-gray-500 rounded-lg font-bold transition-colors"
+            >
+              {loading ? stepLabel : "Run Pipeline →"}
+            </button>
+          </div>
         </div>
 
         {/* Pipeline Steps */}
