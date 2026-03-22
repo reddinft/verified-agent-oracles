@@ -217,11 +217,7 @@ export default function BlitzDemo() {
               <h2 className="text-purple-400 font-bold text-lg">
                 ✅ Verified Oracle Result
               </h2>
-              {result.model_used === "ogma-stub-v1" && (
-                <span className="px-2 py-1 bg-yellow-900/40 border border-yellow-600 text-yellow-400 text-xs rounded font-mono">
-                  demo mode
-                </span>
-              )}
+
             </div>
 
             <div className="grid grid-cols-2 gap-4">

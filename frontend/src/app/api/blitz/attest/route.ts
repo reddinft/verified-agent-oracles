@@ -20,7 +20,7 @@ interface AttestResponse {
 const CANONICAL_TXS = {
   init_tx:      "5kd5jZKgwuUBZ8HqM3WD8Q1dvEf25fjQhgAGTzFKSDi2KsQS4KJnNKqF2XSqUhwzMa71T4hYRjwbjq5kDdHXEQyr",
   attest_tx:    "2jxnXe2iV19eY26LYaivL2s334kGAovLUbdzpnkRNFnHzN1jp1NPwD38HK7xwdxg6GtWLsc7CaPwT9zqDLAxyjen",
-  delegate_tx:  "LOCALNET_SKIP",
+  delegate_tx:  "57bCCNcK8ngtF2XAKD7UmQ888TuqUi59gXFVRdCWZJDkgUWFsxcjR2oyPKG48xXKjuU4p4BBVmcTxCKDotLvyPUa",
   finalize_tx:  "sTKrfXiAKSFrHHaRHX9jCWd1KGgMeL4V8PgAbjSkmo5N62siPBEQKTe8mLZn6DjDdakziMXfHmfPT5gZCUFYm7h",
   escrow_tx:    "2NKjGtnV3ge9ZP8e2CBBcznprULm52MmU877cxXLcehmiSHHQ57k5s9XdvxDyNGeqQPCcjqyi8bWNQZv2rDvoxxF",
   score_account: "4XppN5phMicUJK4imVPas1wuTjUAbVPGwt1Yca1eEa7S",
