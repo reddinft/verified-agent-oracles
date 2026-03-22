@@ -316,10 +316,10 @@ export default function BlitzDemo() {
         <div className="text-xs text-gray-600 pt-4 border-t border-gray-800">
           Built for MagicBlock Solana Blitz v2 · Private Ephemeral Rollups ·{" "}
           <a
-            href="https://github.com/reddinft/verified-agent-oracles"
+            href="https://github.com/nissan/verified-agent-oracles"
             className="underline hover:text-gray-400"
           >
-            github.com/reddinft/verified-agent-oracles
+            github.com/nissan/verified-agent-oracles
           </a>
         </div>
       </div>

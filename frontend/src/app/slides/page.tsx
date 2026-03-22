@@ -62,7 +62,7 @@ And the proof was committed to Solana **before** payment released?
 
 **Program:** GyT8wyGD3dG3sVQ986SGwKxF23iWNjdbSe4oCuBrkMdd (Solana Devnet)
 
-View full signatures: [github.com/reddinft/verified-agent-oracles](https://github.com/reddinft/verified-agent-oracles)
+View full signatures: [github.com/nissan/verified-agent-oracles](https://github.com/nissan/verified-agent-oracles)
 
 ---
 
@@ -116,7 +116,7 @@ View full signatures: [github.com/reddinft/verified-agent-oracles](https://githu
 
 Built at **MagicBlock Solana Blitz v2**
 
-[github.com/reddinft/verified-agent-oracles](https://github.com/reddinft/verified-agent-oracles)
+[github.com/nissan/verified-agent-oracles](https://github.com/nissan/verified-agent-oracles)
 `;
 
 const DIAGRAM_SLIDES = [
