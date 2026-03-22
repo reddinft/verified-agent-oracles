@@ -24,6 +24,8 @@ import {
   commitAndRelease,
   showStatus,
   getAuthenticatedERConnection,
+  createProgram,
+  deriveScorePda,
 } from "./index";
 
 const RPC_URL = process.env.SOLANA_RPC || "http://127.0.0.1:8899";
@@ -139,18 +141,49 @@ async function main() {
   console.log(`  Escrow PDA: ${escrowPda.toString()}`);
 
   // =========================================================
-  // Step 2: Initialize score account + delegate
+  // Step 2: Initialize score account + delegate (skip delegation on localnet)
   // =========================================================
   console.log("\n--- Step 2: Initialize Score Account + Delegate ---");
-  const { initSig, delegateSig, permSig, scorePda } = await ogmaDelegate(
-    connection,
-    ogmaKeypair,
-    storyHash,
-    IS_DEVNET ? MAGICBLOCK_RPC : undefined  // TEE URL for permission creation
-  );
-  console.log(`  initScore Tx: ${initSig}`);
-  console.log(`  delegate Tx: ${delegateSig}`);
-  console.log(`  Score PDA: ${scorePda.toString()}`);
+  let initSig: string;
+  let delegateSig: string = "LOCALNET_SKIP";
+  let scorePda: PublicKey;
+  
+  if (IS_DEVNET) {
+    // On devnet, delegate with MagicBlock
+    const result = await ogmaDelegate(
+      connection,
+      ogmaKeypair,
+      storyHash,
+      MAGICBLOCK_RPC  // TEE URL for permission creation
+    );
+    initSig = result.initSig;
+    delegateSig = result.delegateSig;
+    scorePda = result.scorePda;
+    console.log(`  initScore Tx: ${initSig}`);
+    console.log(`  delegate Tx: ${delegateSig}`);
+    console.log(`  Score PDA: ${scorePda.toString()}`);
+  } else {
+    // On localnet, just initialize the score account without delegation
+    const wallet = new anchor.Wallet(ogmaKeypair);
+    const program = createProgram(connection, wallet);
+    const [pda] = deriveScorePda(ogmaKeypair.publicKey);
+    scorePda = pda;
+    
+    initSig = await (program.methods as any)
+      .initializeScore(Array.from(storyHash))
+      .accounts({
+        ogmaScore: scorePda,
+        oracleSigner: ogmaKeypair.publicKey,
+        payer: ogmaKeypair.publicKey,
+        systemProgram: SystemProgram.programId,
+      })
+      .signers([ogmaKeypair])
+      .rpc();
+    
+    console.log(`  initScore Tx: ${initSig}`);
+    console.log(`  delegate Tx: SKIPPED (localnet)`);
+    console.log(`  Score PDA: ${scorePda.toString()}`);
+  }
 
   // =========================================================
   // Step 3: Submit score (8) — on devnet, sent to MagicBlock ER (TEE)
