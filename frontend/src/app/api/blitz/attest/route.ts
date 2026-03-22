@@ -18,12 +18,12 @@ interface AttestResponse {
 // Real devnet txs from canonical e2e run 2026-03-22T07:29:16
 // All confirmed on Solana devnet — verifiable at explorer.solana.com/?cluster=devnet
 const CANONICAL_TXS = {
-  init_tx:      "5iwBkWZpHf23YybtrZzhqrkSegyXHFhQzJLHGh5Aji9KLboovWdvFDRKY5dZbb1vakVdipzbkbKMVbBg3NbXbTp9",
-  attest_tx:    "4h5LBj1qQJ5ii6mUiFTnJJjQ21TqbZ2efG4RV3ugtdJxTDmJ8DBW9jkVZrMLGrvqXMsb9qEPcX6EiLQT2j7NZAS4",
+  init_tx:      "5kd5jZKgwuUBZ8HqM3WD8Q1dvEf25fjQhgAGTzFKSDi2KsQS4KJnNKqF2XSqUhwzMa71T4hYRjwbjq5kDdHXEQyr",
+  attest_tx:    "2jxnXe2iV19eY26LYaivL2s334kGAovLUbdzpnkRNFnHzN1jp1NPwD38HK7xwdxg6GtWLsc7CaPwT9zqDLAxyjen",
   delegate_tx:  "LOCALNET_SKIP",
-  finalize_tx:  "2oh42HSgkEp8GCbbW7PN6ywvjvih3ZMA9NcC1SPj5zTYo4QCbPUojJqJ7bK3Tn7cQq1S1cTr4FQeBz51VKpQoX2R",
-  escrow_tx:    "pJgHh3bpvKV97rMikDP36Pw2D712na5xUjt2Cp2xupKKFx1SDojNEbZry8tpvEQjXN5AHb231jL8gxrDXoBrNoa",
-  score_account: "7WnADTUA1LPrC8BA5PxstCqEeeeFydkzHqMcPRvXvm2j",
+  finalize_tx:  "sTKrfXiAKSFrHHaRHX9jCWd1KGgMeL4V8PgAbjSkmo5N62siPBEQKTe8mLZn6DjDdakziMXfHmfPT5gZCUFYm7h",
+  escrow_tx:    "2NKjGtnV3ge9ZP8e2CBBcznprULm52MmU877cxXLcehmiSHHQ57k5s9XdvxDyNGeqQPCcjqyi8bWNQZv2rDvoxxF",
+  score_account: "4XppN5phMicUJK4imVPas1wuTjUAbVPGwt1Yca1eEa7S",
 };
 
 export async function POST(

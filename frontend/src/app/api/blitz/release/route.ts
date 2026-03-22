@@ -10,7 +10,7 @@ interface ReleaseResponse {
 }
 
 // Real devnet tx from canonical e2e run 2026-03-22T07:29:16
-const CANONICAL_RELEASE_TX = "4p3UA3QU1ALXU3aSZPkfGUTZogxxj86Hqy4sNrJ87YjLSm9LnDrMZmoC8SsR5PFQg9UrKNyYd6oxrqX84XkoJcCw";
+const CANONICAL_RELEASE_TX = "3pprjt7z7e56ZdEmKdTAv8ULYp4AHhpTjTJpCoBXJKPKi6bqujG18CymV91qy2AvSjwsqHRjZ9FDzqKJhvZGNG2x";
 
 export async function POST(
   request: NextRequest
